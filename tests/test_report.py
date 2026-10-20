@@ -1,5 +1,11 @@
 from verity_codeproof.engine import analyze_diff_text
-from verity_codeproof.report import has_failure, render_html, render_json, render_markdown, render_terminal
+from verity_codeproof.report import (
+    has_failure,
+    render_html,
+    render_json,
+    render_markdown,
+    render_terminal,
+)
 
 
 def test_report_renderers_include_core_metadata():
