@@ -39,6 +39,8 @@ def render_terminal(report: VerificationReport) -> str:
             location += " — "
         lines.append(f"[{_ICONS.get(finding.severity, finding.severity.upper())}] {location}{finding.title}")
         lines.append(f"      {finding.message}")
+        if finding.evidence:
+            lines.append(f"      Evidence: {finding.evidence}")
         if finding.recommendation:
             lines.append(f"      Next step: {finding.recommendation}")
     if report.tests:
