@@ -8,14 +8,14 @@ version = "0.1.0"
 description = "An evidence-first AI agent for verifying AI-generated code changes."
 readme = "README.md"
 requires-python = ">=3.10"
-license = { file = "LICENSE" }
+license = "MIT"
+license-files = ["LICENSE"]
 authors = [{ name = "VerityAgent", email = "hello@verityagent.com" }]
 keywords = ["ai-agent", "ai-coding", "code-verification", "automated-testing", "code-review", "llm", "python", "developer-tools", "ci-cd"]
 classifiers = [
   "Development Status :: 3 - Alpha",
   "Environment :: Console",
   "Intended Audience :: Developers",
-  "License :: OSI Approved :: MIT License",
   "Operating System :: OS Independent",
   "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3.10",
