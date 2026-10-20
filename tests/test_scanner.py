@@ -34,13 +34,16 @@ def test_scanner_finds_eval_and_credential_like_literal():
 +++ b/src/example.py
 @@ -0,0 +1,2 @@
 +result = eval(user_input)
-+API_KEY = "sk-test-THIS_IS_A_FAKE_EXAMPLE_KEY_123456"
++API_KEY = "NOT_A_REAL_SECRET_BUT_LOOKS_SENSITIVE_123456"
 """
     findings = scan_diff(diff)
     rules = {finding.rule_id for finding in findings}
     assert "dynamic-eval" in rules
     assert "possible-hardcoded-secret" in rules
     assert all(finding.path == "src/example.py" for finding in findings)
+    secret_finding = next(f for f in findings if f.rule_id == "possible-hardcoded-secret")
+    assert secret_finding.evidence == "credential-like value [redacted]"
+    assert "NOT_A_REAL_SECRET" not in (secret_finding.evidence or "")
 
 
 def test_comments_are_not_scanned_as_executable_lines():
