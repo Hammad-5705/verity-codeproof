@@ -5,4 +5,4 @@ index 1111111..2222222 100644
 @@ -8,0 +9,3 @@ def calculate(expression, command):
 +    value = eval(expression)
 +    subprocess.run(command, shell=True)
-+    API_KEY = "sk-test-THIS_IS_A_FAKE_EXAMPLE_KEY_123456"
++    API_KEY = "NOT_A_REAL_SECRET_BUT_LOOKS_SENSITIVE_123456"
