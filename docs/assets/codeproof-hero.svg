@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="400" viewBox="0 0 1280 400" role="img" aria-labelledby="title desc">
+<title id="title">VerityAgent CodeProof</title>
+<desc id="desc">An evidence-first AI code verification agent. Inspect the diff, verify behavior, report evidence.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#050b16"/><stop offset=".56" stop-color="#0b1a2b"/><stop offset="1" stop-color="#07111f"/></linearGradient>
+  <linearGradient id="cyan" x1="0" x2="1"><stop stop-color="#41f0d0"/><stop offset="1" stop-color="#3cb8ff"/></linearGradient>
+  <radialGradient id="glow"><stop stop-color="#1bcbb2" stop-opacity=".24"/><stop offset="1" stop-color="#1bcbb2" stop-opacity="0"/></radialGradient>
+  <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#6da0c8" stroke-opacity=".1" stroke-width="1"/></pattern>
+  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#000" flood-opacity=".35"/></filter>
+</defs>
+<rect width="1280" height="400" rx="28" fill="url(#bg)"/>
+<rect width="1280" height="400" rx="28" fill="url(#grid)"/>
+<circle cx="1060" cy="105" r="310" fill="url(#glow)"/>
+<path d="M0 345H1280" stroke="#29465f" stroke-opacity=".5"/>
+<g transform="translate(66 62)">
+  <rect width="46" height="46" rx="13" fill="#0c2633" stroke="#40dfcd" stroke-opacity=".65"/>
+  <path d="M12 16L23 10L34 16V30L23 36L12 30Z" fill="none" stroke="url(#cyan)" stroke-width="2.4"/>
+  <path d="M17 22H29M23 16V29" stroke="#e5fffb" stroke-width="2" stroke-linecap="round"/>
+  <text x="61" y="18" fill="#a5bfd4" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="12" font-weight="700" letter-spacing="3">VERITYAGENT</text>
+  <text x="61" y="40" fill="#ffffff" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="17" font-weight="700">DEVELOPER SYSTEMS</text>
+</g>
+<g transform="translate(66 160)">
+  <rect width="236" height="30" rx="15" fill="#0e2a38" stroke="#255a69"/>
+  <circle cx="16" cy="15" r="4" fill="#4de2d0"/>
+  <text x="29" y="20" fill="#9cf5e9" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" font-weight="800" letter-spacing="1.5">AI CODE VERIFICATION</text>
+  <text x="0" y="97" fill="#f4f9ff" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="65" font-weight="800" letter-spacing="-2">CodeProof</text>
+  <text x="2" y="137" fill="#bad0e5" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="21">AI-generated code should earn trust with evidence.</text>
+  <g transform="translate(0 167)">
+    <rect width="140" height="38" rx="9" fill="url(#cyan)"/>
+    <text x="70" y="24" fill="#04121b" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13" font-weight="800" text-anchor="middle">INSPECT</text>
+    <rect x="151" width="140" height="38" rx="9" fill="#132b41" stroke="#3f637e"/>
+    <text x="221" y="24" fill="#deefff" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13" font-weight="800" text-anchor="middle">VERIFY</text>
+    <rect x="302" width="140" height="38" rx="9" fill="#132b41" stroke="#3f637e"/>
+    <text x="372" y="24" fill="#deefff" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13" font-weight="800" text-anchor="middle">REPORT</text>
+  </g>
+</g>
+<g transform="translate(700 67)" filter="url(#shadow)">
+  <rect width="508" height="270" rx="18" fill="#081321" stroke="#31506b"/>
+  <path d="M0 46H508" stroke="#203950"/>
+  <circle cx="23" cy="23" r="4" fill="#ff7272"/><circle cx="39" cy="23" r="4" fill="#ffd166"/><circle cx="55" cy="23" r="4" fill="#4de2d0"/>
+  <text x="79" y="27" fill="#87a3bb" font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="12">codeproof / verification-run</text>
+  <g font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="13">
+    <text x="24" y="78" fill="#7192ac">01</text><text x="54" y="78" fill="#4de2d0">$ codeproof check --base main</text>
+    <text x="24" y="111" fill="#7192ac">02</text><text x="54" y="111" fill="#b6cce0">Analyzing diff: 7 changed files</text>
+    <text x="24" y="144" fill="#7192ac">03</text><text x="54" y="144" fill="#ffbd78">HIGH  Possible unsafe dynamic evaluation</text>
+    <text x="24" y="166" fill="#7192ac">04</text><text x="54" y="166" fill="#a6b9ca">src/service.py:42</text>
+    <text x="24" y="199" fill="#7192ac">05</text><text x="54" y="199" fill="#4de2d0">Evidence attached · human review required</text>
+  </g>
+  <rect x="24" y="223" width="460" height="27" rx="7" fill="#102d35" stroke="#22675f"/>
+  <circle cx="39" cy="236" r="4" fill="#4de2d0"/>
+  <text x="52" y="241" fill="#99f1e3" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" font-weight="700">NO AUTO-FIXES  /  NO MERGES  /  YOU STAY IN CONTROL</text>
+</g>
+<text x="66" y="376" fill="#7390a7" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="11" letter-spacing="1.2">OPEN SOURCE · PYTHON CLI · EXPLAINABLE FINDINGS · VERITYAGENT</text>
+</svg>
