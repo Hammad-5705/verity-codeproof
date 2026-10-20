@@ -1,0 +1,8 @@
+diff --git a/src/service.py b/src/service.py
+index 1111111..2222222 100644
+--- a/src/service.py
++++ b/src/service.py
+@@ -8,0 +9,3 @@ def calculate(expression, command):
++    value = eval(expression)
++    subprocess.run(command, shell=True)
++    API_KEY = "sk-test-THIS_IS_A_FAKE_EXAMPLE_KEY_123456"
