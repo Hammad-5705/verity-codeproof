@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520" role="img" aria-labelledby="title desc">
+<title id="title">CodeProof sample report</title><desc id="desc">Example terminal output displays a high-severity dynamic evaluation finding with file and line evidence.</desc>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#07111f"/><stop offset="1" stop-color="#10273c"/></linearGradient></defs>
+<rect width="1200" height="520" rx="22" fill="url(#bg)"/>
+<rect x="44" y="38" width="1112" height="444" rx="18" fill="#07101b" stroke="#2b475e"/>
+<path d="M44 92H1156" stroke="#263d52"/>
+<circle cx="75" cy="65" r="6" fill="#ff7272"/><circle cx="97" cy="65" r="6" fill="#ffd166"/><circle cx="119" cy="65" r="6" fill="#4de2d0"/>
+<text x="150" y="71" fill="#8ba7c0" font-family="ui-monospace,Consolas,monospace" font-size="15">verity-codeproof / evidence-report</text>
+<g font-family="ui-monospace,Consolas,monospace" font-size="18">
+<text x="80" y="135" fill="#4de2d0">VERITYAGENT CODEPROOF</text>
+<text x="80" y="166" fill="#9ab3c9">Evidence-first verification report</text>
+<text x="80" y="209" fill="#c5d7e6">Project:       ./sample-service</text>
+<text x="80" y="239" fill="#c5d7e6">Base ref:      main</text>
+<text x="80" y="269" fill="#c5d7e6">Changed files: 3</text>
+<text x="80" y="299" fill="#c5d7e6">Findings:      1</text>
+<text x="80" y="329" fill="#c5d7e6">Risk score:    25/100 (heuristic, not a probability)</text>
+<rect x="78" y="352" width="1044" height="55" rx="9" fill="#261e22" stroke="#884b4b"/>
+<text x="98" y="385" fill="#ff9b83">[HIGH] src/service.py:42 — Dynamic code evaluation</text>
+<text x="80" y="444" fill="#8fa8bc">Evidence: eval(user_expression)</text>
+<text x="80" y="468" fill="#4de2d0">Next step: remove or strictly constrain dynamic evaluation.</text>
+</g>
+</svg>
