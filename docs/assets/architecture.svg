@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+<title id="title">CodeProof architecture</title><desc id="desc">Diff input feeds static heuristic analysis and an optional AI reviewer. Tests run only when explicitly requested. Results become traceable reports.</desc>
+<defs>
+ <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#07111f"/><stop offset="1" stop-color="#0b1e31"/></linearGradient>
+ <linearGradient id="accent" x1="0" x2="1"><stop stop-color="#4de2d0"/><stop offset="1" stop-color="#48b8ff"/></linearGradient>
+ <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0 0L0 6L9 3Z" fill="#4de2d0"/></marker>
+</defs>
+<rect width="1200" height="620" rx="24" fill="url(#bg)"/>
+<text x="48" y="54" fill="#4de2d0" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="800" letter-spacing="2.3">VERITYAGENT CODEPROOF / SYSTEM MAP</text>
+<text x="48" y="92" fill="#f3f8ff" font-family="Inter,Arial,sans-serif" font-size="30" font-weight="800">Evidence pipeline</text>
+<text x="48" y="121" fill="#9cb3c8" font-family="Inter,Arial,sans-serif" font-size="15">Local-first by default. External analysis and test execution require explicit opt-in.</text>
+<g font-family="Inter,Arial,sans-serif">
+ <rect x="48" y="193" width="205" height="134" rx="15" fill="#10253a" stroke="#31526d"/>
+ <circle cx="78" cy="223" r="14" fill="#153d49" stroke="#4de2d0"/><text x="78" y="228" fill="#4de2d0" font-size="12" font-weight="800" text-anchor="middle">01</text>
+ <text x="70" y="262" fill="#f2f8ff" font-size="18" font-weight="700">Git diff</text><text x="70" y="286" fill="#a7bdd1" font-size="13">Added lines + locations</text><text x="70" y="306" fill="#a7bdd1" font-size="13">Staged / unstaged / base</text>
+ <rect x="315" y="170" width="250" height="180" rx="15" fill="#10253a" stroke="#4de2d0" stroke-opacity=".75"/>
+ <circle cx="346" cy="201" r="14" fill="#153d49" stroke="#4de2d0"/><text x="346" y="206" fill="#4de2d0" font-size="12" font-weight="800" text-anchor="middle">02</text>
+ <text x="337" y="240" fill="#f2f8ff" font-size="18" font-weight="700">Local verifier</text><text x="337" y="266" fill="#a7bdd1" font-size="13">Credential-like literals</text><text x="337" y="288" fill="#a7bdd1" font-size="13">Dynamic eval / shell usage</text><text x="337" y="310" fill="#a7bdd1" font-size="13">Risky loaders / test prompts</text>
+ <rect x="638" y="144" width="230" height="125" rx="15" fill="#15263d" stroke="#59708e"/>
+ <circle cx="669" cy="175" r="14" fill="#233652" stroke="#86a6ff"/><text x="669" y="180" fill="#bed0ff" font-size="12" font-weight="800" text-anchor="middle">03A</text>
+ <text x="660" y="214" fill="#f2f8ff" font-size="18" font-weight="700">Optional AI review</text><text x="660" y="238" fill="#a7bdd1" font-size="13">Explicit --ai only</text><text x="660" y="257" fill="#a7bdd1" font-size="13">Bounded diff / advisory</text>
+ <rect x="638" y="302" width="230" height="125" rx="15" fill="#102d2d" stroke="#3b8679"/>
+ <circle cx="669" cy="333" r="14" fill="#153d38" stroke="#4de2d0"/><text x="669" y="338" fill="#4de2d0" font-size="12" font-weight="800" text-anchor="middle">03B</text>
+ <text x="660" y="372" fill="#f2f8ff" font-size="18" font-weight="700">Test runner</text><text x="660" y="396" fill="#a7bdd1" font-size="13">Explicit --run-tests only</text><text x="660" y="415" fill="#a7bdd1" font-size="13">Fixed pytest / timeout</text>
+ <rect x="941" y="193" width="211" height="134" rx="15" fill="#10253a" stroke="#4de2d0"/>
+ <circle cx="972" cy="223" r="14" fill="#153d49" stroke="#4de2d0"/><text x="972" y="228" fill="#4de2d0" font-size="12" font-weight="800" text-anchor="middle">04</text>
+ <text x="963" y="262" fill="#f2f8ff" font-size="18" font-weight="700">Evidence report</text><text x="963" y="286" fill="#a7bdd1" font-size="13">Terminal / Markdown</text><text x="963" y="306" fill="#a7bdd1" font-size="13">JSON / self-contained HTML</text>
+</g>
+<g fill="none" stroke="#4de2d0" stroke-width="2.4" marker-end="url(#arrow)">
+ <path d="M253 260H305"/><path d="M565 230H610V206H628"/><path d="M565 290H610V364H628"/>
+ <path d="M868 206H903V260H931"/><path d="M868 364H903V260H931"/>
+</g>
+<rect x="48" y="477" width="1104" height="92" rx="14" fill="#091724" stroke="#263f57"/>
+<text x="72" y="509" fill="#4de2d0" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="800" letter-spacing="1.5">GUARDRAILS</text>
+<text x="72" y="538" fill="#c2d5e6" font-family="Inter,Arial,sans-serif" font-size="14">No automatic source upload · No automatic code edits · No automatic merge · Test execution is not a sandbox</text>
+</svg>
