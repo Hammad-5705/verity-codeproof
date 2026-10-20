@@ -44,9 +44,9 @@ def test_scanner_finds_eval_and_credential_like_literal():
 
 
 def test_comments_are_not_scanned_as_executable_lines():
-    diff = """diff --git a/src/app.py b/src/app.py
+    diff = """diff --git a/tests/test_app.py b/tests/test_app.py
 --- /dev/null
-+++ b/src/app.py
++++ b/tests/test_app.py
 @@ -0,0 +1 @@
 +# eval(user_input) is unsafe
 """
