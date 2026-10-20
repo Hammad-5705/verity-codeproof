@@ -141,7 +141,7 @@ def scan_diff(diff_text: str) -> list[Finding]:
                     ),
                     path=item.path,
                     line=item.number,
-                    evidence=match.group(0)[:100],
+                    evidence="credential-like value [redacted]",
                     recommendation=(
                         "Remove the value from source control, load it from an environment or "
                         "secret manager, and revoke/rotate any real exposed credential."
