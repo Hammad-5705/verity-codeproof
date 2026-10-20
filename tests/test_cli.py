@@ -15,7 +15,7 @@ def test_demo_command_emits_machine_readable_findings(capsys):
 
 def test_demo_can_write_a_report_to_disk(tmp_path):
     destination = tmp_path / "reports" / "demo.html"
-    result = main(["demo", "--format", "html", "--output", str(destination))
+    result = main(["demo", "--format", "html", "--output", str(destination)])
     assert result == 0
     assert destination.is_file()
     assert "CodeProof verification report" in destination.read_text(encoding="utf-8")
