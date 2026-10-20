@@ -1,0 +1,26 @@
+name: Feature request
+description: Suggest a focused improvement to CodeProof.
+title: "[Feature]: "
+labels: ["enhancement", "needs-triage"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What repeated developer workflow is hard today?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behavior
+      description: Describe the smallest useful behavior and example CLI/API experience.
+    validations:
+      required: true
+  - type: textarea
+    id: tradeoffs
+    attributes:
+      label: Safety, privacy, and failure modes
+      description: Note any source upload, execution, permissions, or false-positive implications.
+    validations:
+      required: true
