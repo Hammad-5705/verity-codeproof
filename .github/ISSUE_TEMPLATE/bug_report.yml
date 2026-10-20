@@ -1,0 +1,42 @@
+name: Bug report
+description: Report a reproducible CodeProof defect.
+title: "[Bug]: "
+labels: ["bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: Remove credentials, personal data, and proprietary source before submitting.
+  - type: input
+    id: version
+    attributes:
+      label: CodeProof version
+      placeholder: 0.1.0
+    validations:
+      required: true
+  - type: input
+    id: python
+    attributes:
+      label: Python version and operating system
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Sanitized reproduction
+      description: Include the smallest diff or synthetic fixture that reproduces the issue.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: observed
+    attributes:
+      label: Expected and actual behavior
+    validations:
+      required: true
+  - type: checkboxes
+    id: safe
+    attributes:
+      label: Safety check
+      options:
+        - label: I removed secrets and confidential source from this report.
+          required: true
