@@ -2,7 +2,7 @@
   <img src="docs/assets/codeproof-hero.svg" alt="VerityAgent CodeProof — evidence-first verification for AI-generated code" width="100%">
   <br>
   <a href="https://github.com/muhammadsaeed-ai/verity-codeproof/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/muhammadsaeed-ai/verity-codeproof/ci.yml?style=for-the-badge&label=quality%20checks" alt="Quality checks"></a>
-  <a href="https://pypi.org/project/verity-codeproof/"><img src="https://img.shields.io/pypi/v/verity-codeproof?style=for-the-badge&label=release" alt="PyPI version"></a>
+  <a href="https://github.com/muhammadsaeed-ai/verity-codeproof/stargazers"><img src="https://img.shields.io/github/stars/muhammadsaeed-ai/verity-codeproof?style=for-the-badge&label=stars" alt="GitHub stars"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-4de2d0?style=for-the-badge" alt="MIT license"></a>
   <a href="https://www.python.org/downloads/"><img src="https://img.shields.io/badge/python-3.10%2B-3776ab?style=for-the-badge&logo=python&logoColor=white" alt="Python 3.10 or newer"></a>
   <br><br>
@@ -30,6 +30,8 @@ CodeProof is deliberately **not another code-writing assistant** and does not cl
 ## See the verification loop
 
 <img src="docs/assets/animated-explainer.svg" alt="Animated CodeProof loop: Git diff, deterministic checks, optional AI analysis, explicit tests, evidence report" width="100%">
+
+Explore the [animated interactive walkthrough](docs/demo.html) and [sample terminal report](docs/assets/terminal-report.svg).
 
 **The principle:** every finding should point to evidence. AI-generated suggestions stay advisory; test results are reported separately from static heuristics.
 
