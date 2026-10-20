@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Animated walkthrough of VerityAgent CodeProof, an evidence-first AI code verification agent.">
+<title>CodeProof — Verification Loop</title>
+<style>
+:root{color-scheme:dark;--bg:#06101c;--panel:#0d1d2e;--line:#29475f;--text:#f3f8ff;--muted:#9bb2c8;--cyan:#4de2d0;--blue:#3cb8ff;--orange:#ffad7b}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(circle at 84% 12%,#123a4a 0,transparent 35%),linear-gradient(145deg,#050b16,#0b1b2d);color:var(--text);font:16px/1.55 system-ui,-apple-system,Segoe UI,sans-serif}
+main{max-width:1120px;margin:auto;padding:clamp(20px,5vw,64px)}
+.eyebrow{color:var(--cyan);letter-spacing:.17em;font-weight:800;font-size:.76rem}
+h1{font-size:clamp(2.4rem,6vw,4.8rem);line-height:1.03;letter-spacing:-.045em;margin:12px 0 18px}
+.lead{font-size:1.15rem;color:#b8ccdc;max-width:760px}
+.header{display:flex;justify-content:space-between;gap:24px;align-items:flex-start;flex-wrap:wrap}
+.pill{border:1px solid #285b68;background:#0b2935;color:#9ff6e8;padding:8px 12px;border-radius:999px;font-size:.8rem;font-weight:700}
+.panel{margin-top:36px;background:linear-gradient(145deg,#0e2032eF,#081522eF);border:1px solid var(--line);border-radius:22px;padding:clamp(18px,3vw,32px);box-shadow:0 26px 90px #0005}
+.flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;position:relative}
+.step{position:relative;background:#0d2134;border:1px solid #31516b;border-radius:16px;padding:22px 16px;min-height:170px;overflow:hidden;animation:rise .7s both}
+.step:nth-child(2){animation-delay:.18s}.step:nth-child(3){animation-delay:.36s}.step:nth-child(4){animation-delay:.54s}
+.step:after{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:linear-gradient(90deg,var(--cyan),var(--blue));transform:scaleX(0);transform-origin:left;animation:progress 3.5s ease-in-out infinite}
+.number{font-size:.76rem;font-weight:800;color:var(--cyan);letter-spacing:.12em}.step h2{font-size:1.15rem;margin:18px 0 8px}.step p{color:var(--muted);font-size:.9rem;margin:0}
+.status{display:flex;align-items:center;gap:10px;margin-top:24px;color:#b7d3e4;font-size:.9rem}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--cyan);box-shadow:0 0 0 0 #4de2d066;animation:pulse 1.7s infinite}
+.console{margin-top:22px;background:#050d16;border:1px solid #243d54;border-radius:14px;padding:18px;overflow:auto;font:13px/1.8 ui-monospace,SFMono-Regular,Consolas,monospace}
+.line{opacity:0;animation:reveal .5s forwards}.line:nth-child(1){animation-delay:.2s}.line:nth-child(2){animation-delay:.8s}.line:nth-child(3){animation-delay:1.4s}.line:nth-child(4){animation-delay:2s}.line:nth-child(5){animation-delay:2.6s}
+.prompt{color:var(--cyan)}.warn{color:var(--orange)}.dim{color:#7995ab}
+.footer{color:#819bb0;font-size:.82rem;margin-top:26px}
+@keyframes rise{from{transform:translateY(14px);opacity:0}to{transform:translateY(0);opacity:1}}
+@keyframes progress{0%,12%{transform:scaleX(0)}30%,72%{transform:scaleX(1)}100%{transform:scaleX(0)}}
+@keyframes pulse{70%{box-shadow:0 0 0 10px #4de2d000}}
+@keyframes reveal{to{opacity:1}}
+@media(max-width:760px){.flow{grid-template-columns:repeat(2,minmax(0,1fr))}.step{min-height:145px}}
+@media(max-width:460px){.flow{grid-template-columns:1fr}.step{min-height:auto}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body><main>
+<div class="header">
+  <div><div class="eyebrow">VERITYAGENT / OPEN SOURCE</div><h1>Code should earn<br>trust with evidence.</h1><p class="lead">CodeProof inspects code changes, surfaces concrete risk indicators, and separates what it observed from what remains unverified.</p></div>
+  <div class="pill">CODEPROOF · ALPHA</div>
+</div>
+<section class="panel" aria-label="Animated verification sequence">
+  <div class="eyebrow">THE VERIFICATION LOOP</div>
+  <div class="flow">
+    <article class="step"><div class="number">01 / INPUT</div><h2>Git diff</h2><p>Track exactly which lines changed and where they came from.</p></article>
+    <article class="step"><div class="number">02 / INSPECT</div><h2>Local checks</h2><p>Search added lines for focused, explainable risk patterns.</p></article>
+    <article class="step"><div class="number">03 / CHALLENGE</div><h2>AI + tests</h2><p>Only if requested. Model suggestions and test results stay distinct.</p></article>
+    <article class="step"><div class="number">04 / DELIVER</div><h2>Evidence report</h2><p>Review locations, confidence, recommendations, and limitations.</p></article>
+  </div>
+  <div class="status"><span class="dot"></span><span>Sample run · source upload disabled · no automatic edits</span></div>
+  <div class="console" aria-label="Sample terminal output">
+    <div class="line"><span class="prompt">$</span> verity-codeproof check --base main</div>
+    <div class="line dim">Analyzing added lines from 4 files...</div>
+    <div class="line warn">[HIGH] src/service.py:42 — Dynamic code evaluation</div>
+    <div class="line">Evidence: eval(user_expression)</div>
+    <div class="line"><span class="prompt">NEXT</span> Review the call site and add a focused regression test.</div>
+  </div>
+  <p class="footer">Illustrative output, not a real benchmark. CodeProof is a decision-support tool, not a proof of correctness. Test execution is not a sandbox.</p>
+</section>
+<p class="footer">VerityAgent CodeProof · Founder &amp; Owner: Mohammed Saeed · CEO: Muhammad Hammad Nadeem</p>
+</main></body>
+</html>
