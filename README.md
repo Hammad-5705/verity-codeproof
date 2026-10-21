@@ -198,8 +198,7 @@ Start with [CONTRIBUTING.md](CONTRIBUTING.md). Bug reports should include the Co
 
 **VerityAgent CodeProof** is an open-source developer tool built by **VerityAgent**.
 
-- Founder & Owner: **Mohammed Saeed**
-- CEO: **Muhammad Hammad Nadeem**
+- Founder & Owner: **Muhammad Saeed**
 - License: [MIT](LICENSE)
 - Security issues: follow [SECURITY.md](SECURITY.md) rather than posting sensitive details in public issues.
 
