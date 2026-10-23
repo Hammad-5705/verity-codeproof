@@ -20,7 +20,9 @@ class AddedLine:
     text: str
 
 
-_HUNK_RE = re.compile(r"@@ -\d+(?:,\d+)? \+(\d+)(?:,(\d+))? @@")
+_HUNK_RE = re.compile(
+    r"@@ -\d+(?:,(?P<old_count>\d+))? \+(?P<new_start>\d+)(?:,(?P<new_count>\d+))? @@"
+)
 _SECRET_PATTERNS = (
     re.compile(r"\bsk-[A-Za-z0-9_-]{20,}\b"),
     re.compile(r"\bgh[pousr]_[A-Za-z0-9_]{20,}\b"),
@@ -76,33 +78,46 @@ _RULES: tuple[tuple[str, str, str, re.Pattern[str], str, str], ...] = (
 
 
 def parse_added_lines(diff_text: str) -> list[AddedLine]:
-    """Parse added lines from a unified diff without relying on Git."""
+    """Parse added lines from a unified diff without relying on Git.
+
+    Hunk line counts decide where a hunk ends, so file headers (``--- ``/``+++ ``) are
+    only recognised outside a hunk. Inside a hunk every line is content, which keeps
+    line numbers correct even when added source starts with ``++`` or removed source
+    starts with ``--`` (for example ``++x`` or a SQL ``-- comment``).
+    """
     result: list[AddedLine] = []
     current_path: str | None = None
-    next_line: int | None = None
+    next_line = 0
+    old_remaining = 0
+    new_remaining = 0
 
     for raw_line in diff_text.splitlines():
+        if old_remaining > 0 or new_remaining > 0:
+            if raw_line.startswith("+"):
+                if current_path is not None:
+                    result.append(AddedLine(current_path, next_line, raw_line[1:]))
+                next_line += 1
+                new_remaining -= 1
+            elif raw_line.startswith("-"):
+                old_remaining -= 1
+            elif raw_line.startswith(" "):
+                next_line += 1
+                old_remaining -= 1
+                new_remaining -= 1
+            # Anything else (e.g. "\\ No newline at end of file") is not a content line.
+            continue
+
         if raw_line.startswith("+++ "):
             path = raw_line[4:].strip()
             current_path = path[2:] if path.startswith("b/") else path
-            next_line = None
-            continue
-        if raw_line.startswith("@@"):
+        elif raw_line.startswith("@@"):
             match = _HUNK_RE.search(raw_line)
             if match:
-                next_line = int(match.group(1))
-            continue
-        if raw_line.startswith(("diff ", "index ", "--- ", "new file mode ", "deleted file mode ")):
-            continue
-        if current_path is None or next_line is None:
-            continue
-        if raw_line.startswith("+") and not raw_line.startswith("+++"):
-            result.append(AddedLine(current_path, next_line, raw_line[1:]))
-            next_line += 1
-        elif raw_line.startswith("-") and not raw_line.startswith("---"):
-            continue
-        elif raw_line.startswith(" "):
-            next_line += 1
+                next_line = int(match.group("new_start"))
+                old_count = match.group("old_count")
+                new_count = match.group("new_count")
+                old_remaining = 1 if old_count is None else int(old_count)
+                new_remaining = 1 if new_count is None else int(new_count)
     return result
 
 
