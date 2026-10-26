@@ -36,7 +36,13 @@ _RULES: tuple[tuple[str, str, str, re.Pattern[str], str, str], ...] = (
         "dynamic-eval",
         "high",
         "Dynamic code evaluation",
-        re.compile(r"\b(?:eval|exec)\s*\("),
+        # Bare eval()/exec() calls and builtins.eval/exec only. Method calls such as
+        # model.eval() (PyTorch) or pattern.exec() (JS RegExp) and definitions such as
+        # "def eval(self)" are not dynamic code evaluation.
+        re.compile(
+            r"(?<![\w.])(?<!def )(?:eval|exec)\s*\("
+            r"|\b(?:builtins|__builtins__)\.(?:eval|exec)\s*\("
+        ),
         "Dynamic evaluation can turn untrusted input into executable code.",
         "Remove dynamic evaluation or strictly constrain and validate the input.",
     ),

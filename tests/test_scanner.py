@@ -66,3 +66,39 @@ def test_production_python_without_test_path_gets_info_prompt():
     findings = scan_diff(diff)
     assert any(item.rule_id == "test-change-not-detected" for item in findings)
     assert all(item.severity == "info" for item in findings)
+
+
+def _diff_with_lines(path: str, lines: list[str]) -> str:
+    body = "\n".join(f"+{line}" for line in lines)
+    return (
+        f"diff --git a/{path} b/{path}\n--- /dev/null\n+++ b/{path}\n"
+        f"@@ -0,0 +1,{len(lines)} @@\n{body}\n"
+    )
+
+
+def _eval_lines(lines: list[str]) -> list[int]:
+    findings = scan_diff(_diff_with_lines("src/app.py", lines))
+    return [f.line for f in findings if f.rule_id == "dynamic-eval"]
+
+
+def test_dynamic_eval_flags_bare_and_builtins_calls():
+    lines = [
+        "result = eval(user_input)",
+        "exec(code)",
+        "value = eval (expr)",
+        "builtins.eval(expr)",
+        "__builtins__.exec(code)",
+        "wrapped = run(eval(expr))",
+    ]
+    assert _eval_lines(lines) == [1, 2, 3, 4, 5, 6]
+
+
+def test_dynamic_eval_ignores_method_calls_and_definitions():
+    lines = [
+        "model.eval()",
+        "self.encoder.eval()",
+        "match = pattern.exec(text)",
+        "def eval(self, x):",
+        "    def exec(self):",
+    ]
+    assert _eval_lines(lines) == []
